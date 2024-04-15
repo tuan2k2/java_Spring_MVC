@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import vn.hoidanit.laptopshop.domian.User;
+import vn.hoidanit.laptopshop.repository.UserRepository;
 import vn.hoidanit.laptopshop.service.UserService;
 
 @Controller
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -23,8 +24,7 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage(Model model) {
-        String test = this.userService.handleHello();
-        model.addAttribute("eric", test);
+        model.addAttribute("eric", "test");
         model.addAttribute("hoidanit", "From controller with model ");
         return "hello";
     }
@@ -39,6 +39,7 @@ public class UserController {
     @ResponseBody
     public String CreateUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
         System.out.println(hoidanit);
+        this.userService.handleSaveUser(hoidanit);
         return "hello";
     }
 }
