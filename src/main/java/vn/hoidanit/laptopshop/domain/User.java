@@ -2,6 +2,7 @@ package vn.hoidanit.laptopshop.domain;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,27 +30,27 @@ public class User {
 
     // roleId
     // User many -> to one -> role
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "role_id")
     private Role role;
 
     @OneToMany(mappedBy = "user")
     List<Order> orders;
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
-
     public Role getRole() {
         return role;
     }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public List<Order> getOrders() {
         return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public long getId() {

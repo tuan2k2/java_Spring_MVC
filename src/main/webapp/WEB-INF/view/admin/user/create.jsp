@@ -61,28 +61,29 @@
                                                     <label class="form-label">Full Name:</label>
                                                     <form:input type="text" class="form-control" path="fullName" />
                                                 </div>
-                                                <div class="mb-3">
+                                                <div class="mb-3 col-12">
                                                     <label class="form-label">Address:</label>
                                                     <form:input type="text" class="form-control" path="address" />
                                                 </div>
+
                                                 <div class="mb-3 col-12 col-md-6">
-                                                    <label class="form-label">Role :</label>
+                                                    <label class="form-label">Role:</label>
                                                     <form:select class="form-select" path="role.name">
-                                                        <form:option value="ADMIN"></form:option>
-                                                        <form:option value="USER"></form:option>
+                                                        <form:option value="ADMIN">ADMIN</form:option>
+                                                        <form:option value="USER">USER</form:option>
                                                     </form:select>
                                                 </div>
-                                                <div class=" mb-3 col-12 col-md-6">
-                                                    <label for="AvatarFile" class="form-label">Avatar :</label>
-                                                    <input class="form-control" type="file" id="avatarFile"
-                                                        name="hoidanitFile" accept=".png, .jpg, .jpeg" />
-                                                </div>
-                                                <div class="mb-3 col-12">
-                                                    <img alt="avatar preview" id="avatarPreview"
-                                                        style="max-height: 250px; display: none;">
-                                                </div>
                                                 <div class="mb-3 col-12 col-md-6">
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                    <label for="avatarFile" class="form-label">Avatar:</label>
+                                                    <input class="form-control" type="file" id="avatarFile"
+                                                        accept=".png, .jpg, .jpeg" name="hoidanitFile" />
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <img style="max-height: 250px; display: none;" alt="avatar preview"
+                                                        id="avatarPreview" />
+                                                </div>
+                                                <div class="col-12 mb-5">
+                                                    <button type="submit" class="btn btn-primary">Create</button>
                                                 </div>
                                             </form:form>
 
