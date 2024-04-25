@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.sym.Name;
-
 import vn.hoidanit.laptopshop.domain.Role;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.repository.RoleRepository;
@@ -16,7 +14,8 @@ public class UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserService(UserRepository userRepository,
+            RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
@@ -43,7 +42,7 @@ public class UserService {
         this.userRepository.deleteById(id);
     }
 
-    public Role roleFindByName(String name) {
+    public Role getRoleByName(String name) {
         return this.roleRepository.findByName(name);
     }
 
